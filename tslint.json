@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier", "tslint-plugin-prettier", "tslint-react"],
+  "rules": {
+    "prettier": [true, { "trailingComma": "es5", "singleQuote": true, "semi": false, "printWidth": 120 }],
+    "no-console": false,
+    "no-use-before-declare": false,
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+    "indent": [true, "spaces", 2],
+    "variable-name": [true, "ban-keywords"],
+    "import-name": false,
+    "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false
+  }
+}
