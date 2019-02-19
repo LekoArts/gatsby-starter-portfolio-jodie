@@ -9,7 +9,10 @@
     "develop": "gatsby develop",
     "dev": "gatsby develop -o",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "lint": "tslint -t stylish -p .",
+    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.ts'",
+    "format": "prettier --write content/**/*.yaml"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
@@ -21,6 +24,7 @@
     "gatsby-plugin-offline": "^2.0.23",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-plugin-sitemap": "^2.0.5",
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-plugin-typescript": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.20",
@@ -30,6 +34,7 @@
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
     "styled-components": "^4.1.3",
+    "styled-system": "^3.2.1",
     "typeface-nunito-sans": "^0.0.54",
     "typescript": "^3.3.3"
   },
