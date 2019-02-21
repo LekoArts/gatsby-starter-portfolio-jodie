@@ -1,12 +1,21 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import {Flex} from 'rebass'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(512px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const Item = styled.a`
@@ -21,17 +30,31 @@ const Item = styled.a`
   }
 `
 
-const Title = styled.div`
+const Content = styled(Flex)`
   z-index: 10;
-  color: white;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
+  bottom: 0;
+  padding: ${props => props.theme.space[5]};
+`
+
+const Bottom = styled(Flex)`
+  color: white;
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    font-size: ${props => props.theme.fontSizes[0]};
+  }
+`
+
+const Title = styled.div`
+  color: white;
   font-weight: 700;
   font-size: ${props => props.theme.fontSizes[2]};
-  padding: ${props => props.theme.space[5]};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    font-size: ${props => props.theme.fontSizes[1]};
+  }
 `
 
 const Instagram = ({ data: { instagram } }) => (
@@ -44,7 +67,10 @@ const Instagram = ({ data: { instagram } }) => (
         return (
           <Item href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>
             <Img fluid={post.localFile.childImageSharp.fluid} />
-            <Title>{title}</Title>
+            <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
+              <Title>{title}</Title>
+              <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between"><span>{post.likes}</span><span>{post.timestamp}</span></Bottom>
+            </Content>
           </Item>
         )
       })}
@@ -61,6 +87,8 @@ export const query =  graphql`
         node {
           caption
           id
+          timestamp
+          likes
           localFile {
             childImageSharp {
               fluid(quality: 100, maxWidth: 600, maxHeight: 600) {

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { Box, Flex, Image } from 'rebass'
+import { Box, Flex } from 'rebass'
 import 'typeface-nunito-sans'
 import theme from '../../config/theme'
-import logo from '../logo.svg'
 import reset from '../styles/reset'
+import Logo from '../components/Logo'
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -78,6 +78,12 @@ const GlobalStyles = createGlobalStyle`
   }
   a {
     transition: all 0.3s ease-in-out;
+    color: black;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: ${theme.colors.primary};
+    }
   }
   
   ${reset}
@@ -95,13 +101,32 @@ const PartialNavLink = (props: any) => (
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.theme.sidebarWidth} 1fr;
+  grid-template-columns: ${props => props.theme.sidebarWidth.big} 1fr;
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+    grid-template-columns: ${props => props.theme.sidebarWidth.normal} 1fr;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const SideBarInner = styled(Box)`
   position: fixed;
   height: 100%;
-  width: ${props => props.theme.sidebarWidth};
+  width: ${props => props.theme.sidebarWidth.big};
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+    width: ${props => props.theme.sidebarWidth.normal};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    position: relative;
+  }
 `
 
 const Nav = styled(Flex)`
@@ -119,7 +144,9 @@ const Nav = styled(Flex)`
 `
 
 const Main = styled.main`
-  grid-column-start: 2;
+  @media (min-width: calc(${props => props.theme.breakpoints[1]} + 1px)) {
+    grid-column-start: 2;
+  }
 `
 
 interface QueryResult {
@@ -142,16 +169,24 @@ const Layout: React.FunctionComponent = ({ children }) => {
         <GlobalStyles />
         <Wrapper>
           <SideBarInner as="aside" p={8}>
-            <Link to="/">
-              <Image width="6rem" src={logo} />
-            </Link>
-            <Nav mt={10} as="nav" flexWrap="nowrap" flexDirection="column" alignItems="flex-start">
-              {data.navigation.edges.map(({ node: item }) => (
-                <PartialNavLink to={item.link} key={item.name}>
-                  {item.name}
-                </PartialNavLink>
-              ))}
-            </Nav>
+            <Box>
+              <Link to="/" aria-label="LekoArts, Back to Home">
+                <Logo />
+              </Link>
+              <Nav mt={10} as="nav" flexWrap="nowrap" flexDirection="column" alignItems="flex-start">
+                {data.navigation.edges.map(({ node: item }) => (
+                  <PartialNavLink to={item.link} key={item.name}>
+                    {item.name}
+                  </PartialNavLink>
+                ))}
+              </Nav>
+            </Box>
+            <Box>
+              <Box fontSize={0} color="grey">
+                Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
+                <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
+              </Box>
+            </Box>
           </SideBarInner>
           <Main>{children}</Main>
         </Wrapper>

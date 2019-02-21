@@ -4,21 +4,26 @@ interface ThemeShape {
   colors: {
     primary: string
     secondary: string
+    grey: string
   }
   space: string[]
   fontWeights: {
     normal: number
     bold: number
   }
-  sidebarWidth: string
+  sidebarWidth: {
+    big: string
+    normal: string
+  }
 }
 
 const theme: ThemeShape = {
-  breakpoints: ['600px', '900px', '1200px'],
+  breakpoints: ['450px', '900px', '1200px', '1400px'],
   fontSizes: ['1rem', '1.2rem', '1.44rem', '1.728rem', '2.074rem', '2.488rem'],
   colors: {
     primary: '#db7436',
-    secondary: '#343549',
+    secondary: '#494992',
+    grey: '#787484',
   },
   space: [
     '0',
@@ -39,7 +44,10 @@ const theme: ThemeShape = {
     normal: 400,
     bold: 700,
   },
-  sidebarWidth: '350px',
+  sidebarWidth: {
+    big: '375px',
+    normal: '320px',
+  },
 }
 
 export default theme

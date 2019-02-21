@@ -1,8 +1,9 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
+import GridItem from '../components/GridItem'
 
 interface ChildImageSharp {
   childImageSharp: {
@@ -41,41 +42,11 @@ const Area = styled.div`
     'instagram instagram instagram';
 `
 
-const Base = styled(Link)`
-  position: relative;
-  > div {
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  > div img {
-    transition: all 0.3s ease 0s !important;
-  }
-  > span {
-    z-index: 10;
-    color: white;
-    position: absolute;
-    left: 0;
-    right: 0;
-    font-weight: 700;
-    font-size: ${props => props.theme.fontSizes[4]};
-    padding: ${props => props.theme.space[6]};
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  &:hover {
-    > div img {
-      transform: scale(1.1);
-    }
-  }
-`
-
-const FirstProject = styled(Base)`
+const FirstProject = styled(GridItem)`
   grid-area: first-project;
 `
 
-const AboutUs = styled(Base)`
+const AboutUs = styled(GridItem)`
   grid-area: about-us;
 `
 
@@ -85,7 +56,7 @@ const ThreeProjects = styled.div`
   grid-template-columns: repeat(3, 1fr);
 `
 
-const Instagram = styled(Base)`
+const Instagram = styled(GridItem)`
   grid-area: instagram;
 `
 
@@ -102,10 +73,10 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
       </AboutUs>
       <ThreeProjects>
         {threeProjects.edges.map(({ node: project }) => (
-          <Base to={project.slug} key={project.slug}>
+          <GridItem to={project.slug} key={project.slug}>
             <Img fluid={project.cover.childImageSharp.fluid} />
             <span>{project.title}</span>
-          </Base>
+          </GridItem>
         ))}
       </ThreeProjects>
       <Instagram to="/instagram">
