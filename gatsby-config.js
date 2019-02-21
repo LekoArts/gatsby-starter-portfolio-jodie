@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const config = require('./config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -32,6 +36,13 @@ module.exports = {
         name: 'images',
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: 'gatsby-source-instagram',
+      options: {
+        access_token: process.env.ACCESS_TOKEN,
+        instagram_id: process.env.BUSINESS_ID,
+      }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
