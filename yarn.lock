@@ -972,7 +972,7 @@
     "@types/react-native" "*"
     csstype "^2.2.0"
 
-"@types/styled-system@*":
+"@types/styled-system@*", "@types/styled-system@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.2.2.tgz#a40b30baf20a8d9820808688a370a973cb778e7c"
   integrity sha512-QjjszVXRIeAT1fAQewWKh1Ewq3/i6xeYp2DH7DC151FfnLNtUbjT8CxUuqpnKrRiessoKdQVLw+3xu/RiMpNBQ==

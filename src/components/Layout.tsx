@@ -102,11 +102,11 @@ const PartialNavLink = (props: any) => (
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: ${props => props.theme.sidebarWidth.big} 1fr;
-  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+  @media (max-width: ${props => props.theme.breakpoints[4]}) {
     grid-template-columns: ${props => props.theme.sidebarWidth.normal} 1fr;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
     grid-template-columns: 1fr;
   }
 `
@@ -120,12 +120,13 @@ const SideBarInner = styled(Box)`
   flex-wrap: nowrap;
   justify-content: space-between;
 
-  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+  @media (max-width: ${props => props.theme.breakpoints[4]}) {
     width: ${props => props.theme.sidebarWidth.normal};
   }
 
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
     position: relative;
+    width: 100%;
   }
 `
 
@@ -140,11 +141,25 @@ const Nav = styled(Flex)`
     &.navlink-active {
       color: ${props => props.theme.colors.primary};
     }
+
+    @media (max-width: ${props => props.theme.breakpoints[2]}) {
+      margin-left: ${props => props.theme.space[4]};
+    }
+
+    @media (max-width: ${props => props.theme.breakpoints[1]}) {
+      font-size: ${props => props.theme.fontSizes[1]};
+      margin-left: ${props => props.theme.space[3]};
+    }
+
+    @media (max-width: ${props => props.theme.breakpoints[0]}) {
+      font-size: ${props => props.theme.fontSizes[0]};
+      margin-left: ${props => props.theme.space[2]};
+    }
   }
 `
 
 const Main = styled.main`
-  @media (min-width: calc(${props => props.theme.breakpoints[1]} + 1px)) {
+  @media (min-width: calc(${props => props.theme.breakpoints[2]} + 1px)) {
     grid-column-start: 2;
   }
 `
@@ -168,19 +183,32 @@ const Layout: React.FunctionComponent = ({ children }) => {
       <>
         <GlobalStyles />
         <Wrapper>
-          <SideBarInner as="aside" p={8}>
-            <Box>
-              <Link to="/" aria-label="LekoArts, Back to Home">
-                <Logo />
-              </Link>
-              <Nav mt={10} as="nav" flexWrap="nowrap" flexDirection="column" alignItems="flex-start">
+          <SideBarInner as="aside" p={[6, 6, 8]}>
+            <Flex
+              flexWrap="nowrap"
+              flexDirection={['row', 'row', 'row', 'column']}
+              alignItems={['center', 'center', 'center', 'flex-start']}
+              justifyContent="space-between"
+            >
+              <Box width={['3rem', '4rem', '5rem', '6rem']}>
+                <Link to="/" aria-label="LekoArts, Back to Home">
+                  <Logo />
+                </Link>
+              </Box>
+              <Nav
+                mt={[0, 0, 0, 10]}
+                as="nav"
+                flexWrap="nowrap"
+                flexDirection={['row', 'row', 'row', 'column']}
+                alignItems="flex-start"
+              >
                 {data.navigation.edges.map(({ node: item }) => (
                   <PartialNavLink to={item.link} key={item.name}>
                     {item.name}
                   </PartialNavLink>
                 ))}
               </Nav>
-            </Box>
+            </Flex>
             <Box>
               <Box fontSize={0} color="grey">
                 Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />

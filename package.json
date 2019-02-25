@@ -46,6 +46,7 @@
     "@types/react-helmet": "^5.0.8",
     "@types/rebass": "^3.0.3",
     "@types/styled-components": "^4.1.10",
+    "@types/styled-system": "^3.2.2",
     "prettier": "^1.16.4",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",

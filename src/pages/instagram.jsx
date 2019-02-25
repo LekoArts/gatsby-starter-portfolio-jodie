@@ -10,12 +10,16 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   
-  @media (max-width: ${props => props.theme.breakpoints[3]}) {
+  @media (max-width: ${props => props.theme.breakpoints[4]}) {
     grid-template-columns: 1fr 1fr 1fr;
   }
   
-  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
     grid-template-columns: 1fr 1fr;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    grid-template-columns: 1fr;
   }
 `
 
@@ -33,7 +37,7 @@ const Overlay = styled.div`
 
 const Bottom = styled(Flex)`
   color: white;
-  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
     font-size: ${props => props.theme.fontSizes[0]};
   }
   transform: translateY(45px);
@@ -78,7 +82,7 @@ const Title = styled.div`
   font-weight: 700;
   font-size: ${props => props.theme.fontSizes[2]};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+  @media (max-width: ${props => props.theme.breakpoints[3]}) {
     font-size: ${props => props.theme.fontSizes[1]};
   }
 `
