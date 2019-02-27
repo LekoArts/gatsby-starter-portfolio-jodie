@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Flex } from 'rebass'
 import styled from 'styled-components'
+import { Flex } from '../elements'
 import Layout from '../components/Layout'
 import Heart from '../heart.svg'
 
@@ -93,7 +93,7 @@ const HeartIcon = styled.img`
 `
 
 const Instagram = ({ data: { instagram } }) => (
-  <Layout>
+  <Layout color="#3F4F67">
     <Grid>
       {instagram.edges.map(({node: post}) => {
         // Grab everything before the first hashtag (because I write my captions like that)

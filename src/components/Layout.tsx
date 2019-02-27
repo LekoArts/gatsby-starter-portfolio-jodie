@@ -1,8 +1,9 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { Box, Flex } from 'rebass'
-import 'typeface-nunito-sans'
+import { readableColor } from 'polished'
+import 'typeface-work-sans'
+import { Box, Flex } from '../elements'
 import theme from '../../config/theme'
 import reset from '../styles/reset'
 import Logo from '../components/Logo'
@@ -72,14 +73,14 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: black;
-    font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Work Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
     background: white;
     font-size: 18px;
   }
   a {
     transition: all 0.3s ease-in-out;
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
     &:hover,
     &:focus {
       color: ${theme.colors.primary};
@@ -120,6 +121,8 @@ const SideBarInner = styled(Box)`
   flex-wrap: nowrap;
   justify-content: space-between;
 
+  background: ${props => props.bg};
+
   @media (max-width: ${props => props.theme.breakpoints[4]}) {
     width: ${props => props.theme.sidebarWidth.normal};
   }
@@ -128,14 +131,18 @@ const SideBarInner = styled(Box)`
     position: relative;
     width: 100%;
   }
+
+  svg {
+    fill: ${props => readableColor(`${props.bg}`)};
+  }
 `
 
 const Nav = styled(Flex)`
   a {
     text-decoration: none;
-    font-weight: 700;
-    color: black;
-    font-size: ${props => props.theme.fontSizes[2]};
+    color: ${props => readableColor(`${props.color}`)};
+    font-size: ${props => props.theme.fontSizes[3]};
+    line-height: 1.5;
     &:hover,
     &:focus,
     &.navlink-active {
@@ -143,6 +150,7 @@ const Nav = styled(Flex)`
     }
 
     @media (max-width: ${props => props.theme.breakpoints[2]}) {
+      font-size: ${props => props.theme.fontSizes[2]};
       margin-left: ${props => props.theme.space[4]};
     }
 
@@ -164,6 +172,34 @@ const Main = styled.main`
   }
 `
 
+const Footer = styled.footer`
+  position: fixed;
+  width: ${props => props.theme.sidebarWidth.big};
+  bottom: 0;
+
+  background: ${props => props.color};
+
+  color: ${props => readableColor(`${props.color}`, `${props.theme.colors.grey}`, '#c3c3c3')};
+
+  a {
+    color: ${props => readableColor(`${props.color}`)};
+    text-decoration: none;
+    &:hover {
+      color: ${props => props.theme.colors.primary};
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    position: relative;
+    width: 100%;
+  }
+`
+
+interface LayoutProps {
+  children: any
+  color?: string
+}
+
 interface QueryResult {
   navigation: {
     edges: {
@@ -175,7 +211,7 @@ interface QueryResult {
   }
 }
 
-const Layout: React.FunctionComponent = ({ children }) => {
+const Layout: React.FunctionComponent<LayoutProps> = ({ children, color = 'white' }) => {
   const data: QueryResult = useStaticQuery(query)
 
   return (
@@ -183,7 +219,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
       <>
         <GlobalStyles />
         <Wrapper>
-          <SideBarInner as="aside" p={[6, 6, 8]}>
+          <SideBarInner bg={color} as="aside" p={[6, 6, 8]}>
             <Flex
               flexWrap="nowrap"
               flexDirection={['row', 'row', 'row', 'column']}
@@ -196,6 +232,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
                 </Link>
               </Box>
               <Nav
+                color={color}
                 mt={[0, 0, 0, 10]}
                 as="nav"
                 flexWrap="nowrap"
@@ -209,14 +246,14 @@ const Layout: React.FunctionComponent = ({ children }) => {
                 ))}
               </Nav>
             </Flex>
-            <Box>
-              <Box fontSize={0} color="grey">
-                Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
-                <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
-              </Box>
-            </Box>
           </SideBarInner>
           <Main>{children}</Main>
+          <Footer color={color}>
+            <Box p={[6, 6, 8]} fontSize={0}>
+              Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
+              <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
+            </Box>
+          </Footer>
         </Wrapper>
       </>
     </ThemeProvider>
