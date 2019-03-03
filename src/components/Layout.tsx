@@ -112,7 +112,7 @@ const Wrapper = styled.div`
   }
 `
 
-const SideBarInner = styled(Box)`
+const SideBarInner = styled(Box)<{ bg: string }>`
   position: fixed;
   height: 100%;
   width: ${props => props.theme.sidebarWidth.big};
@@ -137,7 +137,7 @@ const SideBarInner = styled(Box)`
   }
 `
 
-const Nav = styled(Flex)`
+const Nav = styled(Flex)<{ color: string }>`
   a {
     text-decoration: none;
     color: ${props => readableColor(`${props.color}`)};
@@ -172,7 +172,7 @@ const Main = styled.main`
   }
 `
 
-const Footer = styled.footer`
+const Footer = styled.footer<{ color: string }>`
   position: fixed;
   width: ${props => props.theme.sidebarWidth.big};
   bottom: 0;
@@ -187,6 +187,10 @@ const Footer = styled.footer`
     &:hover {
       color: ${props => props.theme.colors.primary};
     }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints[4]}) {
+    width: ${props => props.theme.sidebarWidth.normal};
   }
 
   @media (max-width: ${props => props.theme.breakpoints[2]}) {

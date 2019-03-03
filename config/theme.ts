@@ -2,18 +2,14 @@ interface ThemeShape {
   breakpoints: string[]
   fontSizes: string[]
   colors: {
-    primary: string
-    secondary: string
-    grey: string
+    [key: string]: string
   }
   space: string[]
   fontWeights: {
-    normal: number
-    bold: number
+    [key: string]: number
   }
   sidebarWidth: {
-    big: string
-    normal: string
+    [key: string]: string
   }
 }
 
@@ -23,7 +19,8 @@ const theme: ThemeShape = {
   colors: {
     primary: '#c66131',
     secondary: '#494992',
-    grey: '#787484',
+    grey: '#646066',
+    shade: '#f5f5f5',
   },
   space: [
     '0',
@@ -37,8 +34,10 @@ const theme: ThemeShape = {
     '2.5rem',
     '3rem',
     '4rem',
-    '5rem',
     '6rem',
+    '8rem',
+    '12rem',
+    '16rem',
   ],
   fontWeights: {
     normal: 400,

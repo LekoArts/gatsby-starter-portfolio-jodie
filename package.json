@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "lint": "tslint -t stylish -p .",
-    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.ts'",
+    "lint:fix": "tslint -p tsconfig.json -t stylish --fix 'src/**/*.{ts,tsx}'",
     "format": "prettier --write content/**/*.yaml"
   },
   "dependencies": {
