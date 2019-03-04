@@ -10,6 +10,17 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
+    pathPrefix,
+    title: config.siteTitle,
+    titleAlt: config.siteTitleAlt,
+    description: config.siteDescription,
+    logo: config.siteLogo,
+    headline: config.siteHeadline,
+    siteLanguage: config.siteLanguage,
+    ogLanguage: config.ogLanguage,
+    author: config.author,
+    twitter: config.userTwitter,
+    facebook: config.ogSiteName,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

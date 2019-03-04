@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Flex } from '../elements'
 import Layout from '../components/Layout'
 import Heart from '../heart.svg'
+import SEO from '../components/SEO'
 
 const Grid = styled.div`
   display: grid;
@@ -94,6 +95,7 @@ const HeartIcon = styled.img`
 
 const Instagram = ({ data: { instagram } }) => (
   <Layout color="#3F4F67">
+    <SEO title="Instagram | Jodie" />
     <Grid>
       {instagram.edges.map(({node: post}) => {
         // Grab everything before the first hashtag (because I write my captions like that)

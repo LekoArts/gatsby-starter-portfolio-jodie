@@ -1,19 +1,18 @@
+// graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
-  promise
-    .then(result => {
-      if (result.errors) {
-        throw result.errors
-      }
-      return { result, error: null }
-    })
-    .catch(error => ({ error, result: null }))
+  promise.then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
+    return result
+  })
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const projectTemplate = require.resolve('./src/templates/project.tsx')
 
-  const { error, result } = await wrapper(
+  const result = await wrapper(
     graphql(`
       {
         projects: allProjectsYaml {
@@ -28,20 +27,14 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   )
 
-  if (!error) {
-    result.data.projects.edges.forEach(edge => {
-      createPage({
-        path: edge.node.slug,
-        component: projectTemplate,
-        context: {
-          slug: edge.node.slug,
-          images: `/${edge.node.images}/`,
-        }
-      })
+  result.data.projects.edges.forEach(edge => {
+    createPage({
+      path: edge.node.slug,
+      component: projectTemplate,
+      context: {
+        slug: edge.node.slug,
+        images: `/${edge.node.images}/`,
+      }
     })
-
-    return
-  }
-
-  console.log(error)
+  })
 }

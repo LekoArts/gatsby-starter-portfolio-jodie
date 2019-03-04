@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import GridItem from '../components/GridItem'
+import SEO from '../components/SEO'
 
 interface ChildImageSharp {
   childImageSharp: {
@@ -103,6 +104,7 @@ const Instagram = styled(GridItem)`
 
 const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, threeProjects, aboutUs, instagram } }) => (
   <Layout>
+    <SEO />
     <Area>
       <FirstProject to={firstProject.slug}>
         <Img fluid={firstProject.cover.childImageSharp.fluid} />

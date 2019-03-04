@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import GridItem from '../components/GridItem'
+import SEO from '../components/SEO'
 
 interface ChildImageSharp {
   childImageSharp: {
@@ -38,6 +39,7 @@ const Area = styled.div`
 
 const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) => (
   <Layout color="#000">
+    <SEO title="Projects | Jodie" />
     <Area>
       {projects.edges.map(({ node: project }) => (
         <GridItem key={project.slug} to={project.slug}>

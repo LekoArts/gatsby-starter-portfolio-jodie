@@ -199,9 +199,10 @@ const Footer = styled.footer<{ color: string }>`
   }
 `
 
-interface LayoutProps {
-  children: any
-  color?: string
+type LayoutProps = { children: React.ReactNode } & typeof defaultProps
+
+const defaultProps = {
+  color: 'white',
 }
 
 interface QueryResult {
@@ -215,7 +216,7 @@ interface QueryResult {
   }
 }
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ children, color = 'white' }) => {
+const Layout = ({ children, color }: LayoutProps) => {
   const data: QueryResult = useStaticQuery(query)
 
   return (
@@ -265,6 +266,8 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children, color = 'white
 }
 
 export default Layout
+
+Layout.defaultProps = defaultProps
 
 const query = graphql`
   query LayoutQuery {

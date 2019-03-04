@@ -5,6 +5,7 @@ import { transparentize, readableColor } from 'polished'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import { Box, Button } from '../elements'
+import SEO from '../components/SEO'
 
 interface ChildImageSharp {
   childImageSharp: {
@@ -19,6 +20,17 @@ interface PageProps {
       color: string
       category: string
       desc: string
+      parent: {
+        modifiedTime: string
+        birthTime: string
+      }
+      cover: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
+        }
+      }
     }
     images: {
       edges: {
@@ -66,6 +78,13 @@ const PButton = styled(Button)<{ color: string }>`
 
 const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => (
   <Layout color={project.color}>
+    <SEO
+      title={`${project.title_detail} | Jodie`}
+      desc={project.desc}
+      node={project.parent}
+      banner={project.cover.childImageSharp.resize.src}
+      individual={true}
+    />
     <PBox py={10} px={[6, 6, 8, 10]}>
       <Category>{project.category}</Category>
       <h1>{project.title_detail}</h1>
@@ -98,6 +117,19 @@ export const query = graphql`
       color
       category
       desc
+      parent {
+        ... on File {
+          modifiedTime
+          birthTime
+        }
+      }
+      cover {
+        childImageSharp {
+          resize(width: 1200, height: 675, quality: 80) {
+            src
+          }
+        }
+      }
     }
     images: allFile(filter: { relativePath: { regex: $images } }) {
       edges {

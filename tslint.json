@@ -9,6 +9,7 @@
     "variable-name": [true, "ban-keywords"],
     "import-name": false,
     "jsx-no-multiline-js": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "object-shorthand-properties-first": false
   }
 }
