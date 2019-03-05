@@ -40,7 +40,6 @@ Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfol
 - Shows your Instagram posts
 - TypeScript
 - Uses styled-components + styled-system for styling
-- react-spring animations
 - Google Analytics support
 - SEO
     - Sitemap
