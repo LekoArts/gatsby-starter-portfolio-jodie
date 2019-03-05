@@ -100,6 +100,18 @@ ACCESS_TOKEN=YOUR_TOKEN
 
 You can paste your access token and Business ID there.
 
+Then use these in `gatsby-config.js`:
+
+```js
+{
+  resolve: 'gatsby-source-instagram',
+  options: {
+    access_token: process.env.ACCESS_TOKEN,
+    instagram_id: process.env.BUSINESS_ID,
+  }
+},
+```
+
 ### Adding a new project
 
 1. Create a new folder in `content/projects` and place your images there
