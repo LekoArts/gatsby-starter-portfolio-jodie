@@ -3,22 +3,23 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Flex } from '../elements'
-import Layout from '../components/Layout'
-import Heart from '../heart.svg'
+import Layout from '../components/layout'
+import { ChildImageSharp } from '../types'
 import SEO from '../components/SEO'
+import Heart from '../heart.svg'
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  
+
   @media (max-width: ${props => props.theme.breakpoints[4]}) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  
+
   @media (max-width: ${props => props.theme.breakpoints[3]}) {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     grid-template-columns: 1fr;
   }
@@ -56,11 +57,11 @@ const Item = styled.a`
     > div img {
       transform: scale(1.05);
     }
-    
+
     ${Overlay} {
       opacity: 1;
     }
-    
+
     ${Bottom} {
       transform: translateY(0);
       opacity: 1;
@@ -93,11 +94,27 @@ const HeartIcon = styled.img`
   height: 1.25rem;
 `
 
-const Instagram = ({ data: { instagram } }) => (
+type Props = {
+  data: {
+    instagram: {
+      edges: {
+        node: {
+          caption: string
+          id: string
+          timestamp: number
+          likes: number
+          localFile: ChildImageSharp
+        }
+      }[]
+    }
+  }
+}
+
+const Instagram: React.FunctionComponent<Props> = ({ data: { instagram } }) => (
   <Layout color="#3F4F67">
     <SEO title="Instagram | Jodie" />
     <Grid>
-      {instagram.edges.map(({node: post}) => {
+      {instagram.edges.map(({ node: post }) => {
         // Grab everything before the first hashtag (because I write my captions like that)
         const title = post.caption.split('#')[0]
         const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
@@ -108,7 +125,12 @@ const Instagram = ({ data: { instagram } }) => (
             <Img fluid={post.localFile.childImageSharp.fluid} />
             <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
               <Title>{title}</Title>
-              <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between"><span><HeartIcon src={Heart} /> {post.likes}</span><span>{date}</span></Bottom>
+              <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between">
+                <span>
+                  <HeartIcon src={Heart} /> {post.likes}
+                </span>
+                <span>{date}</span>
+              </Bottom>
             </Content>
           </Item>
         )
@@ -119,9 +141,9 @@ const Instagram = ({ data: { instagram } }) => (
 
 export default Instagram
 
-export const query =  graphql`
+export const query = graphql`
   query Instagram {
-    instagram: allInstaNode(sort: {fields: timestamp, order: DESC}, limit: 30) {
+    instagram: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 30) {
       edges {
         node {
           caption

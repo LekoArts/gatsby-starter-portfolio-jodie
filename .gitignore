@@ -60,6 +60,7 @@ typings/
 
 .cache/
 public
+results
 yarn-error.log
 .idea
 .vscode

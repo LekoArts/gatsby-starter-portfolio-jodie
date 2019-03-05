@@ -6,7 +6,7 @@ import 'typeface-work-sans'
 import { Box, Flex } from '../elements'
 import theme from '../../config/theme'
 import reset from '../styles/reset'
-import Logo from '../components/Logo'
+import Logo from './logo'
 
 const GlobalStyles = createGlobalStyle`
   *::before,

@@ -3,42 +3,10 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { transparentize, readableColor } from 'polished'
 import styled from 'styled-components'
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import { Box, Button } from '../elements'
 import SEO from '../components/SEO'
-
-interface ChildImageSharp {
-  childImageSharp: {
-    fluid: any
-  }
-}
-
-interface PageProps {
-  data: {
-    project: {
-      title_detail: string
-      color: string
-      category: string
-      desc: string
-      parent: {
-        modifiedTime: string
-        birthTime: string
-      }
-      cover: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
-    }
-    images: {
-      edges: {
-        node: ChildImageSharp
-      }[]
-    }
-  }
-}
+import { ChildImageSharp } from '../types'
 
 const PBox = styled(Box)`
   max-width: 1400px;
@@ -76,9 +44,38 @@ const PButton = styled(Button)<{ color: string }>`
   color: ${props => readableColor(props.color === 'white' ? 'black' : props.color)};
 `
 
+type PageProps = {
+  data: {
+    project: {
+      title_detail: string
+      color: string
+      category: string
+      desc: string
+      slug: string
+      parent: {
+        modifiedTime: string
+        birthTime: string
+      }
+      cover: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
+        }
+      }
+    }
+    images: {
+      edges: {
+        node: ChildImageSharp
+      }[]
+    }
+  }
+}
+
 const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => (
   <Layout color={project.color}>
     <SEO
+      pathname={project.slug}
       title={`${project.title_detail} | Jodie`}
       desc={project.desc}
       node={project.parent}
@@ -117,6 +114,7 @@ export const query = graphql`
       color
       category
       desc
+      slug
       parent {
         ... on File {
           modifiedTime

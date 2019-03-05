@@ -2,17 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Layout from '../components/Layout'
-import GridItem from '../components/GridItem'
+import Layout from '../components/layout'
+import GridItem from '../components/grid-item'
 import SEO from '../components/SEO'
+import { ChildImageSharp } from '../types'
 
-interface ChildImageSharp {
-  childImageSharp: {
-    fluid: any
-  }
-}
-
-interface PageProps {
+type PageProps = {
   data: {
     firstProject: {
       title: string
