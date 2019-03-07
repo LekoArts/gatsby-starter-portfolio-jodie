@@ -7,7 +7,6 @@ import { config, useSpring, animated } from 'react-spring'
 import Layout from '../components/layout'
 import { Box, AnimatedBox, Button } from '../elements'
 import SEO from '../components/SEO'
-import { ChildImageSharp } from '../types'
 
 const PBox = styled(AnimatedBox)`
   max-width: 1400px;
@@ -67,7 +66,21 @@ type PageProps = {
     }
     images: {
       edges: {
-        node: ChildImageSharp
+        node: {
+          name: string
+          childImageSharp: {
+            fluid: {
+              aspectRatio: number
+              src: string
+              srcSet: string
+              sizes: string
+              base64: string
+              tracedSVG: string
+              srcWebp: string
+              srcSetWebp: string
+            }
+          }
+        }
       }[]
     }
   }
@@ -104,7 +117,11 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {images.edges.map(image => (
-            <Img key={image.node.childImageSharp.fluid.src} fluid={image.node.childImageSharp.fluid} />
+            <Img
+              alt={image.node.name}
+              key={image.node.childImageSharp.fluid.src}
+              fluid={image.node.childImageSharp.fluid}
+            />
           ))}
         </PBox>
       </Content>
@@ -145,6 +162,7 @@ export const query = graphql`
     images: allFile(filter: { relativePath: { regex: $images } }) {
       edges {
         node {
+          name
           childImageSharp {
             fluid(quality: 95, maxWidth: 1200) {
               ...GatsbyImageSharpFluid_withWebp
