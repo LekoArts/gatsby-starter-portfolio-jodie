@@ -39,6 +39,7 @@ Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfol
 - Create your projects by creating a folder full of images and adding an entry to a .yaml file
 - Shows your Instagram posts
 - TypeScript
+- react-spring animations
 - Uses styled-components + styled-system for styling
 - Google Analytics support
 - SEO

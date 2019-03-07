@@ -2,13 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { config, animated, useSpring, useTrail } from 'react-spring'
 import { Flex } from '../elements'
 import Layout from '../components/layout'
 import { ChildImageSharp } from '../types'
 import SEO from '../components/SEO'
 import Heart from '../heart.svg'
 
-const Grid = styled.div`
+const Grid = styled(animated.div)`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
 
@@ -47,7 +48,7 @@ const Bottom = styled(Flex)`
   transition: all 0.4s ease 0s;
 `
 
-const Item = styled.a`
+const Item = styled(animated.a)`
   position: relative;
   overflow: hidden;
   > div img {
@@ -110,34 +111,57 @@ type Props = {
   }
 }
 
-const Instagram: React.FunctionComponent<Props> = ({ data: { instagram } }) => (
-  <Layout color="#3F4F67">
-    <SEO title="Instagram | Jodie" />
-    <Grid>
-      {instagram.edges.map(({ node: post }) => {
-        // Grab everything before the first hashtag (because I write my captions like that)
-        const title = post.caption.split('#')[0]
-        const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+const Instagram: React.FunctionComponent<Props> = ({
+  data: {
+    instagram: { edges: instagram },
+  },
+}) => {
+  const pageAnimation = useSpring({
+    config: config.default,
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  })
 
-        return (
-          <Item href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>
-            <Overlay />
-            <Img fluid={post.localFile.childImageSharp.fluid} />
-            <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
-              <Title>{title}</Title>
-              <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between">
-                <span>
-                  <HeartIcon src={Heart} /> {post.likes}
-                </span>
-                <span>{date}</span>
-              </Bottom>
-            </Content>
-          </Item>
-        )
-      })}
-    </Grid>
-  </Layout>
-)
+  const trail = useTrail(instagram.length, {
+    config: {
+      mass: 1,
+      tension: 210,
+      friction: 23,
+    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  })
+
+  return (
+    <Layout color="#3F4F67">
+      <SEO title="Instagram | Jodie" />
+      <Grid style={pageAnimation}>
+        {trail.map((style, index) => {
+          // Grab everything before the first hashtag (because I write my captions like that)
+          const post = instagram[index].node
+          const title = post.caption.split('#')[0]
+          const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+
+          return (
+            <Item style={style} href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>
+              <Overlay />
+              <Img fluid={post.localFile.childImageSharp.fluid} />
+              <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
+                <Title>{title}</Title>
+                <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between">
+                  <span>
+                    <HeartIcon src={Heart} /> {post.likes}
+                  </span>
+                  <span>{date}</span>
+                </Bottom>
+              </Content>
+            </Item>
+          )
+        })}
+      </Grid>
+    </Layout>
+  )
+}
 
 export default Instagram
 

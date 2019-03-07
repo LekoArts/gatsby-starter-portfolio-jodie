@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { animated } from 'react-spring'
+
 import {
   space,
   color,
@@ -22,6 +24,17 @@ export const Box = styled<any>('div')`
 
 Box.displayName = 'Box'
 
+export const AnimatedBox = styled<any>(animated.div)`
+  box-sizing: border-box;
+  ${space}
+  ${width}
+  ${color}
+  ${flex}
+  ${alignSelf}
+`
+
+AnimatedBox.displayName = 'AnimatedBox'
+
 export const Flex = styled<any>('div')`
   display: flex;
   ${space}
@@ -32,6 +45,17 @@ export const Flex = styled<any>('div')`
 `
 
 Flex.displayName = 'Flex'
+
+export const AnimatedFlex = styled<any>(animated.div)`
+  display: flex;
+  ${space}
+  ${flexWrap}
+  ${flexDirection}
+  ${alignItems}
+  ${justifyContent}
+`
+
+AnimatedFlex.displayName = 'AnimatedFlex'
 
 export const Button = styled<any>('button')`
   border-radius: 1000rem;
