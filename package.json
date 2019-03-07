@@ -21,9 +21,9 @@
     "server:ci": "start-server-and-test develop http://localhost:8000 cy:run:ci",
     "test:compile": "tsc --project cypress/tsconfig.json",
     "test:compile:watch": "tsc --watch --project cypress/tsconfig.json",
-    "test": "npm-run-all -s test:compile server:run",
-    "test:watch": "npm-run-all -p test:compile:watch server:open",
-    "test:ci": "npm-run-all -s test:compile server:ci"
+    "test": "cross-env CYPRESS_SUPPORT=y npm-run-all -s test:compile server:run",
+    "test:watch": "cross-env CYPRESS_SUPPORT=y npm-run-all -p test:compile:watch server:open",
+    "test:ci": "cross-env CYPRESS_SUPPORT=y npm-run-all -s test:compile server:ci"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
@@ -59,6 +59,7 @@
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.10",
     "@types/styled-system": "^3.2.2",
+    "cross-env": "^5.2.0",
     "cypress": "^3.1.5",
     "cypress-testing-library": "^2.3.6",
     "gatsby-cypress": "^0.1.4",
