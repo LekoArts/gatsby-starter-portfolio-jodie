@@ -64,3 +64,5 @@ results
 yarn-error.log
 .idea
 .vscode
+
+cypress/e2e/build

@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-config-airbnb", "tslint-config-prettier", "tslint-plugin-prettier", "tslint-react"],
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier", "tslint-plugin-prettier", "tslint-react", "tslint-plugin-cypress"],
   "rules": {
     "prettier": [true, { "trailingComma": "es5", "singleQuote": true, "semi": false, "printWidth": 120 }],
     "no-console": false,
