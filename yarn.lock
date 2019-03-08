@@ -5143,9 +5143,11 @@ gatsby-cli@^2.4.13:
     yurnalist "^1.0.2"
 
 gatsby-cypress@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/gatsby-cypress/-/gatsby-cypress-0.1.4.tgz#4938edd0a221eb61cb1b700c7b84245cb231641b"
-  integrity sha512-6IRwZa1saiEbahAW+5KlDeJj8yoR0wumhHRR0gvt7fyRH5Ul+1pLun5p+DVjKKcuOOTASAZxN4qaZOdxTEH2OQ==
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/gatsby-cypress/-/gatsby-cypress-0.1.5.tgz#e34599c9ef1079c5af32a4aea34b6a7bcf492688"
+  integrity sha512-7Nf3hcIcwWIdnm5BgInjTugNh9prnnN55iwH4JmQpO/odkQ4jPP3lpKjabsfl0wWGPS+FVZLahmyRwx6MRyWpg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 gatsby-image@^2.0.29:
   version "2.0.31"
@@ -9752,9 +9754,9 @@ react-side-effect@^1.1.0:
     shallowequal "^1.0.1"
 
 react-spring@^8.0.12:
-  version "8.0.12"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.12.tgz#30a526825d40da7441c05aa2085ad09169f5c37b"
-  integrity sha512-HuSIcZZ5QYC0thVLl56Q4mf1+fZ4/eqZJaPtFKmASmgIRmfbeH9hYwz7xcy88OhdsC4BP9fxFyNLy2j9CI+MHw==
+  version "8.0.13"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.13.tgz#18678c1c631908d0f9caacd7e45eeb236cebd87f"
+  integrity sha512-xxOCLqWLPo5KWhWRRrDEhQZ+2ggwTuUzCsByENPy8DNyl9XH/pMp6nmDhMnEdSCbXA2n97smLK8c1Q1sTSl3Hg==
   dependencies:
     "@babel/runtime" "^7.3.1"
 
