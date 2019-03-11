@@ -42,7 +42,7 @@
     "gatsby-source-instagram": "^0.2.5",
     "gatsby-transformer-sharp": "^2.1.13",
     "gatsby-transformer-yaml": "^2.1.8",
-    "polished": "^3.0.0",
+    "polished": "^3.0.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
