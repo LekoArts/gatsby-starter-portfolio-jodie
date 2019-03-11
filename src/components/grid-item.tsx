@@ -19,6 +19,7 @@ const GridItem = styled(Link)`
     position: absolute;
     left: 0;
     right: 0;
+    text-align: right;
     font-weight: 700;
     font-size: ${props => props.theme.fontSizes[4]};
     padding: ${props => props.theme.space[6]};

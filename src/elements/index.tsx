@@ -11,6 +11,7 @@ import {
   flexDirection,
   alignItems,
   justifyContent,
+  textAlign,
 } from 'styled-system'
 
 export const Box = styled<any>('div')`
@@ -20,6 +21,7 @@ export const Box = styled<any>('div')`
   ${color}
   ${flex}
   ${alignSelf}
+  ${textAlign}
 `
 
 Box.displayName = 'Box'
@@ -31,6 +33,7 @@ export const AnimatedBox = styled<any>(animated.div)`
   ${color}
   ${flex}
   ${alignSelf}
+  ${textAlign}
 `
 
 AnimatedBox.displayName = 'AnimatedBox'

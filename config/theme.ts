@@ -19,7 +19,7 @@ const theme: ThemeShape = {
   colors: {
     primary: '#c66131',
     secondary: '#494992',
-    grey: '#646066',
+    grey: '#58545a',
     shade: '#f5f5f5',
   },
   space: [
