@@ -8973,7 +8973,7 @@ pngquant-bin@^5.0.0:
     execa "^0.10.0"
     logalot "^2.0.0"
 
-polished@^3.0.0:
+polished@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.0.3.tgz#b7d9604936f6dc40031306f3a1136585fc3471b5"
   integrity sha512-WFgVHAWJubobUzk5B5dcqS2jGw8hB/I/H5hXitR4jd/bvEZBQV4vlw5UGDhLxkLQ1incf9NMFztI4XAryHvJDA==
