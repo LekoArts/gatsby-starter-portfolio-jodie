@@ -58,7 +58,7 @@
     "@types/react-dom": "^16.8.3",
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.12",
-    "@types/styled-system": "^3.2.2",
+    "@types/styled-system": "^4.0.0",
     "cross-env": "^5.2.0",
     "cypress": "^3.2.0",
     "cypress-testing-library": "^2.3.6",
