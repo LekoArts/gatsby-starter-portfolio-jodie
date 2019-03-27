@@ -104,7 +104,7 @@ type Props = {
     instagram: {
       edges: {
         node: {
-          caption: string
+          caption?: string
           id: string
           timestamp: number
           likes: number
@@ -143,7 +143,7 @@ const Instagram: React.FunctionComponent<Props> = ({
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)
           const post = instagram[index].node
-          const title = post.caption.split('#')[0]
+          const title = post.caption ? post.caption.split('#')[0] : ''
           const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
 
           return (
