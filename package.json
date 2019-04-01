@@ -50,7 +50,7 @@
     "styled-components": "^4.2.0",
     "styled-system": "^4.1.0",
     "typeface-work-sans": "^0.0.72",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^10.14.4",
