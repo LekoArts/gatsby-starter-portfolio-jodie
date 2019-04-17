@@ -105,7 +105,7 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         desc={project.desc}
         node={project.parent}
         banner={project.cover.childImageSharp.resize.src}
-        individual={true}
+        individual
       />
       <PBox py={10} px={[6, 6, 8, 10]}>
         <Category style={categoryAnimation}>{project.category}</Category>

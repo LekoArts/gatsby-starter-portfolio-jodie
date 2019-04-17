@@ -1,8 +1,8 @@
 import React from 'react'
+import { config, useSpring } from 'react-spring'
 import Layout from '../components/layout'
 import { AnimatedBox } from '../elements'
 import SEO from '../components/SEO'
-import { config, useSpring } from 'react-spring'
 
 const About = () => {
   const pageAnimation = useSpring({

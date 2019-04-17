@@ -90,13 +90,12 @@ const GlobalStyles = createGlobalStyle`
   ${reset}
 `
 
-const isPartiallyActive = ({ isPartiallyCurrent }: { isPartiallyCurrent: boolean }) => {
-  return isPartiallyCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
-}
+const isPartiallyActive = ({ isPartiallyCurrent }: { isPartiallyCurrent: boolean }) =>
+  isPartiallyCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
 
-const PartialNavLink = (props: any) => (
-  <Link getProps={isPartiallyActive} {...props}>
-    {props.children}
+const PartialNavLink = ({ children, ...rest }: { children: React.ReactNode }) => (
+  <Link getProps={isPartiallyActive} {...rest}>
+    {children}
   </Link>
 )
 

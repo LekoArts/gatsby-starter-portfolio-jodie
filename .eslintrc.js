@@ -48,6 +48,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "no-console": 0,
+    "spaced-comment": 0,
     "no-use-before-define": 0,
     "linebreak-style": 0,
     "consistent-return": 0,
