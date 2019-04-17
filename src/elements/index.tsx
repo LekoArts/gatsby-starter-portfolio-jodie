@@ -12,9 +12,21 @@ import {
   alignItems,
   justifyContent,
   textAlign,
+  SpaceProps,
+  WidthProps,
+  ColorProps,
+  FlexProps,
+  FlexWrapProps,
+  FlexDirectionProps,
+  AlignItemsProps,
+  JustifyContentProps,
+  AlignSelfProps,
+  TextAlignProps,
 } from 'styled-system'
 
-export const Box = styled<any>('div')`
+type BoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps
+
+export const Box = styled.div<BoxProps>`
   box-sizing: border-box;
   ${space}
   ${width}
@@ -26,7 +38,9 @@ export const Box = styled<any>('div')`
 
 Box.displayName = 'Box'
 
-export const AnimatedBox = styled<any>(animated.div)`
+type AnimatedBoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps
+
+export const AnimatedBox = styled(animated.div)<AnimatedBoxProps>`
   box-sizing: border-box;
   ${space}
   ${width}
@@ -38,7 +52,9 @@ export const AnimatedBox = styled<any>(animated.div)`
 
 AnimatedBox.displayName = 'AnimatedBox'
 
-export const Flex = styled<any>('div')`
+type FlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps
+
+export const Flex = styled.div<FlexCompProps>`
   display: flex;
   ${space}
   ${flexWrap}
@@ -49,7 +65,9 @@ export const Flex = styled<any>('div')`
 
 Flex.displayName = 'Flex'
 
-export const AnimatedFlex = styled<any>(animated.div)`
+type AnimatedFlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps
+
+export const AnimatedFlex = styled(animated.div)<AnimatedFlexCompProps>`
   display: flex;
   ${space}
   ${flexWrap}
@@ -60,7 +78,9 @@ export const AnimatedFlex = styled<any>(animated.div)`
 
 AnimatedFlex.displayName = 'AnimatedFlex'
 
-export const Button = styled<any>('button')`
+type ButtonProps = SpaceProps & WidthProps & ColorProps
+
+export const Button = styled.button<ButtonProps>`
   border-radius: 1000rem;
   border: none;
   font-weight: 700;
