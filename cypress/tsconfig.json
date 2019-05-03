@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig",
   "compilerOptions": {
     "baseUrl": "../node_modules",
     "outDir": "e2e/build",
@@ -7,10 +6,11 @@
     "sourceMap": false,
     "target": "es5",
     "lib": ["es2015", "es2017", "dom"],
-    "types": ["cypress", "../cypress-testing-library/typings"],
-    "typeRoots": ["../node_modules/@types"]
+    "types": ["cypress", "../cypress-testing-library/typings"]
   },
   "include": [
-    "e2e/*.ts"
+    "**/*.ts",
+    "support/*.ts",
+    "../node_modules/cypress"
   ]
 }
