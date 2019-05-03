@@ -6,7 +6,6 @@
     "lib": ["dom", "es2015", "es2017"],
     "strict": true,
     "noEmit": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
