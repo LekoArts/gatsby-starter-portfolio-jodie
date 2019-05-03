@@ -45,7 +45,7 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
       <SEO title="Projects | Jodie" />
       <Area style={pageAnimation}>
         {projects.edges.map(({ node: project }) => (
-          <GridItem key={project.slug} to={project.slug}>
+          <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>
             <Img fluid={project.cover.childImageSharp.fluid} />
             <span>{project.title}</span>
           </GridItem>

@@ -1,9 +1,11 @@
 /// <reference types="../support/index" />
+/// <reference types="cypress" />
+/// <reference types="cypress-testing-library/typings" />
 
 describe('project', () => {
   beforeEach(() => {
     cy.visit('/')
-      .getByText(/breakfast/i)
+      .getByLabelText(/view project "breakfast"/i)
       .click({ force: true })
       .waitForRouteChange()
   })
