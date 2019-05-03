@@ -34,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: edge.node.slug,
         images: `/${edge.node.images}/`,
-      }
+      },
     })
   })
 }

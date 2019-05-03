@@ -1,6 +1,6 @@
 require('dotenv').config({
   path: `.env`,
-});
+})
 
 const config = require('./config')
 
@@ -53,7 +53,7 @@ module.exports = {
       options: {
         access_token: process.env.ACCESS_TOKEN,
         instagram_id: process.env.BUSINESS_ID,
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
