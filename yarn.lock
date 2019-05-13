@@ -11285,10 +11285,10 @@ styled-components@^4.2.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-system@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-4.2.1.tgz#ae2ac256948e7b483b4f9f9ad0034ebe94e6d2f1"
-  integrity sha512-JlpZmj4QSvrurga+ea00x0u8dl7nFLJS7pLsdtTVo+/AoCepqkG4FOBTaw1ATgsSbJeLaiicVg/Mj955GJUbuA==
+styled-system@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-4.2.2.tgz#f456d53039706418f4898dc6cc2caf338a9ac46f"
+  integrity sha512-qaIIFbjHZxjIOQQ3AWIswriHP91L42UmNHt5GFut+IKkLIqMEWmd+OYo7N3myt5kFrJKGGKJBVDcjCpwglsY0A==
   dependencies:
     "@babel/runtime" "^7.4.2"
     prop-types "^15.7.2"
