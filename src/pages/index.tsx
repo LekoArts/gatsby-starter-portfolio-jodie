@@ -137,7 +137,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
 export default Index
 
 export const query = graphql`
-  query IndexQuery {
+  query Index {
     firstProject: projectsYaml {
       title
       slug

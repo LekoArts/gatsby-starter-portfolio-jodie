@@ -58,7 +58,7 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
 export default Projects
 
 export const query = graphql`
-  query ProjectsQuery {
+  query Projects {
     projects: allProjectsYaml {
       edges {
         node {

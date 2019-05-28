@@ -269,7 +269,7 @@ export default Layout
 Layout.defaultProps = defaultProps
 
 const query = graphql`
-  query LayoutQuery {
+  query Layout {
     navigation: allNavigationYaml {
       edges {
         node {
