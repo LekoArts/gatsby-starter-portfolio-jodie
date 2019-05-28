@@ -11,12 +11,10 @@ import { ChildImageSharp } from '../types'
 type PageProps = {
   data: {
     projects: {
-      edges: {
-        node: {
-          title: string
-          slug: string
-          cover: ChildImageSharp
-        }
+      nodes: {
+        title: string
+        slug: string
+        cover: ChildImageSharp
       }[]
     }
   }
@@ -44,7 +42,7 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
     <Layout color="#000">
       <SEO title="Projects | Jodie" />
       <Area style={pageAnimation}>
-        {projects.edges.map(({ node: project }) => (
+        {projects.nodes.map(project => (
           <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>
             <Img fluid={project.cover.childImageSharp.fluid} />
             <span>{project.title}</span>
@@ -60,15 +58,13 @@ export default Projects
 export const query = graphql`
   query Projects {
     projects: allProjectsYaml {
-      edges {
-        node {
-          title
-          slug
-          cover {
-            childImageSharp {
-              fluid(quality: 95, maxWidth: 1200) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+      nodes {
+        title
+        slug
+        cover {
+          childImageSharp {
+            fluid(quality: 95, maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

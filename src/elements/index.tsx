@@ -88,6 +88,9 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   font-weight: 700;
   font-size: 1.25rem;
+  &:hover {
+    cursor: pointer;
+  }
   ${space}
   ${width}
   ${color}

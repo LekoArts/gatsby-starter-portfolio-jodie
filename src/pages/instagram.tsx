@@ -102,14 +102,12 @@ const HeartIcon = styled.img`
 type Props = {
   data: {
     instagram: {
-      edges: {
-        node: {
-          caption?: string
-          id: string
-          timestamp: number
-          likes: number
-          localFile: ChildImageSharp
-        }
+      nodes: {
+        caption?: string
+        id: string
+        timestamp: number
+        likes: number
+        localFile: ChildImageSharp
       }[]
     }
   }
@@ -117,7 +115,7 @@ type Props = {
 
 const Instagram: React.FunctionComponent<Props> = ({
   data: {
-    instagram: { edges: instagram },
+    instagram: { nodes: instagram },
   },
 }) => {
   const pageAnimation = useSpring({
@@ -142,7 +140,7 @@ const Instagram: React.FunctionComponent<Props> = ({
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)
-          const post = instagram[index].node
+          const post = instagram[index]
           const title = post.caption ? post.caption.split('#')[0] : ''
           const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
 
@@ -172,17 +170,15 @@ export default Instagram
 export const query = graphql`
   query Instagram {
     instagram: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 30) {
-      edges {
-        node {
-          caption
-          id
-          timestamp
-          likes
-          localFile {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 600, maxHeight: 600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+      nodes {
+        caption
+        id
+        timestamp
+        likes
+        localFile {
+          childImageSharp {
+            fluid(quality: 100, maxWidth: 600, maxHeight: 600) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

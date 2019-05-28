@@ -65,20 +65,18 @@ type PageProps = {
       }
     }
     images: {
-      edges: {
-        node: {
-          name: string
-          childImageSharp: {
-            fluid: {
-              aspectRatio: number
-              src: string
-              srcSet: string
-              sizes: string
-              base64: string
-              tracedSVG: string
-              srcWebp: string
-              srcSetWebp: string
-            }
+      nodes: {
+        name: string
+        childImageSharp: {
+          fluid: {
+            aspectRatio: number
+            src: string
+            srcSet: string
+            sizes: string
+            base64: string
+            tracedSVG: string
+            srcWebp: string
+            srcSetWebp: string
           }
         }
       }[]
@@ -116,12 +114,8 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
-          {images.edges.map(image => (
-            <Img
-              alt={image.node.name}
-              key={image.node.childImageSharp.fluid.src}
-              fluid={image.node.childImageSharp.fluid}
-            />
+          {images.nodes.map(image => (
+            <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
           ))}
         </PBox>
       </Content>
@@ -160,13 +154,11 @@ export const query = graphql`
       }
     }
     images: allFile(filter: { relativePath: { regex: $images } }) {
-      edges {
-        node {
-          name
-          childImageSharp {
-            fluid(quality: 95, maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+      nodes {
+        name
+        childImageSharp {
+          fluid(quality: 95, maxWidth: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

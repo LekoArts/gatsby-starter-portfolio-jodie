@@ -206,11 +206,9 @@ const defaultProps = {
 
 interface QueryResult {
   navigation: {
-    edges: {
-      node: {
-        name: string
-        link: string
-      }
+    nodes: {
+      name: string
+      link: string
     }[]
   }
 }
@@ -243,7 +241,7 @@ const Layout = ({ children, color }: LayoutProps) => {
                 flexDirection={['row', 'row', 'row', 'column']}
                 alignItems="flex-start"
               >
-                {data.navigation.edges.map(({ node: item }) => (
+                {data.navigation.nodes.map(item => (
                   <PartialNavLink to={item.link} key={item.name}>
                     {item.name}
                   </PartialNavLink>
@@ -271,11 +269,9 @@ Layout.defaultProps = defaultProps
 const query = graphql`
   query Layout {
     navigation: allNavigationYaml {
-      edges {
-        node {
-          name
-          link
-        }
+      nodes {
+        name
+        link
       }
     }
   }

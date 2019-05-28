@@ -16,24 +16,22 @@ exports.createPages = async ({ graphql, actions }) => {
     graphql(`
       {
         projects: allProjectsYaml {
-          edges {
-            node {
-              slug
-              images
-            }
+          nodes {
+            slug
+            images
           }
         }
       }
     `)
   )
 
-  result.data.projects.edges.forEach(edge => {
+  result.data.projects.nodes.forEach(node => {
     createPage({
-      path: edge.node.slug,
+      path: node.slug,
       component: projectTemplate,
       context: {
-        slug: edge.node.slug,
-        images: `/${edge.node.images}/`,
+        slug: node.slug,
+        images: `/${node.images}/`,
       },
     })
   })

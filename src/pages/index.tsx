@@ -16,12 +16,10 @@ type PageProps = {
       cover: ChildImageSharp
     }
     threeProjects: {
-      edges: {
-        node: {
-          title: string
-          slug: string
-          cover: ChildImageSharp
-        }
+      nodes: {
+        title: string
+        slug: string
+        cover: ChildImageSharp
       }[]
     }
     aboutUs: ChildImageSharp
@@ -118,7 +116,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
           <span>About</span>
         </AboutUs>
         <ThreeProjects>
-          {threeProjects.edges.map(({ node: project }) => (
+          {threeProjects.nodes.map(project => (
             <GridItem to={project.slug} key={project.slug} aria-label={`View project "${project.title}"`}>
               <Img fluid={project.cover.childImageSharp.fluid} />
               <span>{project.title}</span>
@@ -150,15 +148,13 @@ export const query = graphql`
       }
     }
     threeProjects: allProjectsYaml(limit: 3, skip: 1) {
-      edges {
-        node {
-          title
-          slug
-          cover {
-            childImageSharp {
-              fluid(quality: 95, maxWidth: 1200) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+      nodes {
+        title
+        slug
+        cover {
+          childImageSharp {
+            fluid(quality: 95, maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
