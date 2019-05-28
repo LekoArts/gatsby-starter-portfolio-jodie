@@ -12,6 +12,7 @@ import {
   alignItems,
   justifyContent,
   textAlign,
+  fontSize,
   SpaceProps,
   WidthProps,
   ColorProps,
@@ -22,9 +23,10 @@ import {
   JustifyContentProps,
   AlignSelfProps,
   TextAlignProps,
+  FontSizeProps,
 } from 'styled-system'
 
-type BoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps
+type BoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps & FontSizeProps
 
 export const Box = styled.div<BoxProps>`
   box-sizing: border-box;
@@ -34,6 +36,7 @@ export const Box = styled.div<BoxProps>`
   ${flex}
   ${alignSelf}
   ${textAlign}
+  ${fontSize}
 `
 
 Box.displayName = 'Box'
