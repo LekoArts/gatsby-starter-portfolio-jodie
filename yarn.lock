@@ -1179,10 +1179,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@^24.0.13":
-  version "24.0.13"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.13.tgz#10f50b64cb05fb02411fbba49e9042a3a11da3f9"
-  integrity sha512-3m6RPnO35r7Dg+uMLj1+xfZaOgIHHHut61djNjzwExXN4/Pm9has9C6I1KMYSfz7mahDhWUOVg4HW/nZdv5Pww==
+"@types/jest@^24.0.15":
+  version "24.0.15"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.15.tgz#6c42d5af7fe3b44ffff7cc65de7bf741e8fa427f"
+  integrity sha512-MU1HIvWUme74stAoc3mgAi+aMlgKOudgEvQDIm1v4RkrDudBh1T+NFp5sftpBAdXdx1J0PbdpJ+M2EsSOi1djA==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -1201,10 +1201,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
   integrity sha512-5tabW/i+9mhrfEOUcLDu2xBPsHJ+X5Orqy9FKpale3SjDA17j5AEpYq5vfy3oAeAHGcvANRCO3NV3d2D6q3NiA==
 
-"@types/node@^10.14.8":
-  version "10.14.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.8.tgz#fe444203ecef1162348cd6deb76c62477b2cc6e9"
-  integrity sha512-I4+DbJEhLEg4/vIy/2gkWDvXBOOtPKV9EnLhYjMoqxcRW+TTZtUftkHktz/a8suoD5mUL7m6ReLrkPvSsCQQmw==
+"@types/node@^10.14.9":
+  version "10.14.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.9.tgz#2e8d678039d27943ce53a1913386133227fd9066"
+  integrity sha512-NelG/dSahlXYtSoVPErrp06tYFrvzj8XLWmKA+X8x0W//4MqbUyZu++giUG/v0bjAT6/Qxa8IjodrfdACyb0Fg==
 
 "@types/node@^7.0.11":
   version "7.10.6"
@@ -1259,10 +1259,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@^16.8.19":
-  version "16.8.19"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.19.tgz#629154ef05e2e1985cdde94477deefd823ad9be3"
-  integrity sha512-QzEzjrd1zFzY9cDlbIiFvdr+YUmefuuRYrPxmkwG0UQv5XF35gFIi7a95m1bNVcFU0VimxSZ5QVGSiBmlggQXQ==
+"@types/react@^16.8.20":
+  version "16.8.20"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.20.tgz#4f633ecbd0a4d56d0ccc50fff6f9321bbcd7d583"
+  integrity sha512-ZLmI+ubSJpfUIlQuULDDrdyuFQORBuGOvNnMue8HeA0GVrAJbWtZQhcBvnBPNRBI/GrfSfrKPFhthzC2SLEtLQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
