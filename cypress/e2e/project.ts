@@ -1,6 +1,6 @@
 /// <reference types="../support/index" />
 /// <reference types="cypress" />
-/// <reference types="cypress-testing-library/typings" />
+/// <reference types="@testing-library/cypress/typings" />
 
 describe('project', () => {
   beforeEach(() => {
