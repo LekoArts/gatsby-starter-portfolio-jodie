@@ -1021,18 +1021,18 @@
   dependencies:
     "@styled-system/core" "^5.0.15"
 
-"@testing-library/cypress@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-4.0.4.tgz#9063d86a5aba2a3133a1ab8aee3aaf080f88374b"
-  integrity sha512-dKdz9dczm2WhLGOWjdxizsfMyQu+u2caW0Ej+gAucz26z/KF6Y5lC+7ANy5Ol0DRa5cA0sMTUtgCSY2g9ZN8AA==
+"@testing-library/cypress@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-4.0.5.tgz#9015eea19f732a72dc44cc9d439479a039455870"
+  integrity sha512-xmtvi647OZuUNmUOg2oUuew89PKwsKGSLIQeK8+WVmfbtMhit2km4we2Lf/XliMQHfKIHrtnRL7yqpHjWaasuQ==
   dependencies:
     "@babel/runtime" "^7.4.5"
-    "@testing-library/dom" "^5.0.1"
+    "@testing-library/dom" "^5.6.0"
 
-"@testing-library/dom@^5.0.1":
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-5.4.0.tgz#49f41c99473286a4102721242bc47571fb7efef0"
-  integrity sha512-0OQsquNYfbxgqqoGf9RZ9lglXEYgKlhSe+W9UFQGDAvT554Y9PG6hGe0RHYggAXe/GoNPccSsl65nn+qq0cFKw==
+"@testing-library/dom@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-5.6.0.tgz#18a7c162a6a79964e731ad7b810022a28218047c"
+  integrity sha512-nAsRvQLr/b6TGNjuHMEbWXCNPLrQYnzqa/KKQZL7wBOtfptUxsa4Ah9aqkHW0ZmCSFmUDj4nFUxWPVTeMu0iCw==
   dependencies:
     "@babel/runtime" "^7.4.5"
     "@sheerun/mutationobserver-shim" "^0.3.2"
