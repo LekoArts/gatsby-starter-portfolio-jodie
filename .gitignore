@@ -66,3 +66,5 @@ yarn-error.log
 .vscode
 
 cypress/e2e/build
+
+.DS_Store
