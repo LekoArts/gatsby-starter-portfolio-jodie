@@ -153,7 +153,7 @@ export const query = graphql`
         }
       }
     }
-    images: allFile(filter: { relativePath: { regex: $images } }) {
+    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
       nodes {
         name
         childImageSharp {
