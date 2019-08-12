@@ -49,7 +49,7 @@
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
     "styled-components": "^4.3.2",
-    "styled-system": "^5.0.18",
+    "styled-system": "^5.0.21",
     "typeface-work-sans": "^0.0.72",
     "typescript": "^3.5.3"
   },
