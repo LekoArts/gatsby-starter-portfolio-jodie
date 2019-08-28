@@ -62,6 +62,7 @@
     "@types/react-helmet": "^5.0.9",
     "@types/styled-components": "^4.1.18",
     "@types/styled-system": "^5.1.1",
+    "@types/testing-library__cypress": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "cross-env": "^5.2.0",
