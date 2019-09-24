@@ -15,7 +15,7 @@ describe('project', () => {
   })
   it('should have a category, title, description', () => {
     cy.findByText(/photography/i)
-      .findByText(/Breakfast - The most important time of the day/i)
+      .findAllByText(/Breakfast - The most important time of the day/i)
       .findByText(/The first meal of the day./i)
   })
   it('should have images', () => {
