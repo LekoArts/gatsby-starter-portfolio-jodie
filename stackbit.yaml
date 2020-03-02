@@ -1,0 +1,12 @@
+stackbitVersion: ~0.2.0
+ssgName: custom # allowed values: unibit, jekyll, hugo, gatsby, custom
+buildCommand: npm run build # build command that builds static site
+publishDir: dist # folder with the generated static site files
+staticDir: static # folder with files that are copied to publishDir as is
+uploadDir: images # folder with media files, relative to staticDir
+pagesDir: content # folder with markdown page files
+dataDir: data # folder with data files (yaml, json, toml)
+excludePages:
+  - example/**/*
+  - README.md
+models: ... # see Stackbit Content Model documentation
