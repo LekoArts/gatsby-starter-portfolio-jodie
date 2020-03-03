@@ -48,7 +48,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.0.1",
     "styled-system": "^5.1.5",
     "typeface-work-sans": "^0.0.72",
     "typescript": "^3.7.5"
