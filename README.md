@@ -71,7 +71,7 @@ npm run develop
 
 ### Configuring the Instagram source plugin
 
-1. You need to have a Facebook page (I know... :/)
+1. You need to have a [Facebook Page](https://www.facebook.com/pages/creation/) connected to [your Instagram Business account](https://www.facebook.com/business/help/898752960195806) (I know... :/)
 1. Go to your site settings -> Instagram -> Login into your Instagram account
 1. Create a [app](https://developers.facebook.com/apps/)
 1. Go to the [Graph API Explorer][gae]
@@ -83,7 +83,7 @@ npm run develop
     1. Press "Extend Access Token" and copy the generated long-lived user access token
 1. [Graph API Explorer][gae]:
     1. Paste copied token into the "Access Token" field
-    1. Make a GET request with "PAGE_ID?fields=access_token"
+    1. Make a GET request with "PAGE_ID?fields=access_token" ([How to find your Page ID](https://www.facebook.com/help/1503421039731588))
     1. Find the permanent page access token in the response (node "access_token")
 1. [Access Token Debugger][atd]:
     1. Paste the permanent token and press "Debug"
