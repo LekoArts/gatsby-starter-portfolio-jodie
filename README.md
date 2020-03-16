@@ -212,3 +212,4 @@ export default theme
 
 [gae]: https://developers.facebook.com/tools/explorer/
 [atd]: https://developers.facebook.com/tools/debug/accesstoken/
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-universal)
