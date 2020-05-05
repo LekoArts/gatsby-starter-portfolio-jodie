@@ -1,0 +1,24 @@
+{
+  extends: [
+    "config:base"
+  ],
+  automerge: true,
+  masterIssue: true,
+  major: {
+    automerge: false
+  },
+  packageRules: [
+    {
+      groupName: "packages (non-major)",
+      paths: ["package.json"],
+      updateTypes: ["patch", "minor"],
+    },
+  ],
+  labels: ["renovate"],
+  prHourlyLimit: 4,
+  prConcurrentLimit: 16,
+  rangeStrategy: "bump",
+  bumpVersion: null,
+  semanticCommits: true,
+  schedule: "on the first day of the month"
+}
