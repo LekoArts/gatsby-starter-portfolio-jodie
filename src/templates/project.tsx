@@ -14,20 +14,20 @@ const PBox = styled(AnimatedBox)`
 `
 
 const Content = styled(Box)<{ bg: string }>`
-  background-color: ${props => transparentize(0.9, props.bg)};
+  background-color: ${(props) => transparentize(0.9, props.bg)};
 
   .gatsby-image-wrapper:not(:last-child) {
-    margin-bottom: ${props => props.theme.space[10]};
+    margin-bottom: ${(props) => props.theme.space[10]};
 
-    @media (max-width: ${props => props.theme.breakpoints[3]}) {
-      margin-bottom: ${props => props.theme.space[8]};
+    @media (max-width: ${(props) => props.theme.breakpoints[3]}) {
+      margin-bottom: ${(props) => props.theme.space[8]};
     }
   }
 `
 
 const Category = styled(AnimatedBox)`
   letter-spacing: 0.05em;
-  font-size: ${props => props.theme.fontSizes[1]};
+  font-size: ${(props) => props.theme.fontSizes[1]};
   text-transform: uppercase;
 `
 
@@ -40,8 +40,8 @@ const Description = styled(animated.div)`
 `
 
 const PButton = styled(Button)<{ color: string }>`
-  background: ${props => (props.color === 'white' ? 'black' : props.color)};
-  color: ${props => readableColor(props.color === 'white' ? 'black' : props.color)};
+  background: ${(props) => (props.color === 'white' ? 'black' : props.color)};
+  color: ${(props) => readableColor(props.color === 'white' ? 'black' : props.color)};
 `
 
 type PageProps = {
@@ -114,7 +114,7 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
-          {images.nodes.map(image => (
+          {images.nodes.map((image) => (
             <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
           ))}
         </PBox>

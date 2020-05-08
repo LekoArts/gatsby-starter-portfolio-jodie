@@ -25,17 +25,13 @@ describe('navigation', () => {
   })
   it('link to about works', () => {
     cy.get('nav').within(() => {
-      cy.findByText(/about/i)
-        .click({ force: true })
-        .waitForRouteChange()
+      cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
     cy.findByText(/Hi. I'm LekoArts!/i).assertRoute('/about')
   })
   it('link to home works', () => {
     cy.get('nav').within(() => {
-      cy.findByText(/about/i)
-        .click({ force: true })
-        .waitForRouteChange()
+      cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
     cy.findByText(/Hi. I'm LekoArts!/i)
       .assertRoute('/about')
