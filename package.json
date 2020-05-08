@@ -54,7 +54,7 @@
     "typescript": "^3.7.5"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^5.1.2",
+    "@testing-library/cypress": "^6.0.0",
     "@types/jest": "^24.0.25",
     "@types/node": "^10.17.13",
     "@types/react": "^16.9.17",
@@ -62,7 +62,7 @@
     "@types/react-helmet": "^5.0.14",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.4",
-    "@types/testing-library__cypress": "^5.0.1",
+    "@types/testing-library__cypress": "^5.0.5",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "cross-env": "^6.0.3",
@@ -78,6 +78,9 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "start-server-and-test": "^1.10.9"
+  },
+  "resolutions": {
+    "cypress": "^4.5.0"
   },
   "repository": {
     "type": "git",
