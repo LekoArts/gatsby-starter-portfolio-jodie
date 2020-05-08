@@ -25,7 +25,7 @@ const Area = styled(animated.div)`
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 50vw;
 
-  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+  @media (max-width: ${(props) => props.theme.breakpoints[2]}) {
     grid-template-columns: 1fr;
     grid-auto-rows: 60vw;
   }
@@ -42,7 +42,7 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
     <Layout color="#000">
       <SEO title="Projects | Jodie" />
       <Area style={pageAnimation}>
-        {projects.nodes.map(project => (
+        {projects.nodes.map((project) => (
           <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>
             <Img fluid={project.cover.childImageSharp.fluid} />
             <span>{project.title}</span>
