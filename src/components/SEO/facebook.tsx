@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 type Props = { url: string; title: string; desc: string; image: string; locale: string } & typeof defaultProps
 
