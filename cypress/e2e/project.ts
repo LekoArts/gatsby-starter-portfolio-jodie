@@ -5,7 +5,7 @@
 describe('project', () => {
   beforeEach(() => {
     cy.visit('/')
-      .findByLabelText(/view project "breakfast"/i)
+    cy.findByLabelText(/view project "breakfast"/i)
       .click({ force: true })
       .waitForRouteChange()
   })
@@ -15,8 +15,8 @@ describe('project', () => {
   })
   it('should have a category, title, description', () => {
     cy.findByText(/photography/i)
-      .findAllByText(/Breakfast - The most important time of the day/i)
-      .findByText(/The first meal of the day./i)
+    cy.findAllByText(/Breakfast - The most important time of the day/i)
+    cy.findByText(/The first meal of the day./i)
   })
   it('should have images', () => {
     cy.findByAltText(/projects-breakfast-003/i)
