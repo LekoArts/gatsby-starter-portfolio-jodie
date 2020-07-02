@@ -27,13 +27,13 @@ describe('navigation', () => {
     cy.get('nav').within(() => {
       cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
-    cy.findByText(/Hi. I'm LekoArts!/i).assertRoute('/about')
+    cy.findByText(/You can visit my website or my other Gatsby projects:/i).assertRoute('/about')
   })
   it('link to home works', () => {
     cy.get('nav').within(() => {
       cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
-    cy.findByText(/Hi. I'm LekoArts!/i).assertRoute('/about')
+    cy.findByText(/You can visit my website or my other Gatsby projects:/i).assertRoute('/about')
     cy.findByLabelText(/LekoArts, Back to home/i)
       .click({ force: true })
       .waitForRouteChange()
