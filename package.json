@@ -51,7 +51,7 @@
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
     "typeface-work-sans": "^0.0.72",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.3"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
