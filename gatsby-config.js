@@ -1,83 +1,61 @@
-require('dotenv').config({
+require(`dotenv`).config({
   path: `.env`,
 })
 
-const config = require('./config')
-
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-
 module.exports = {
-  pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
-    pathPrefix,
-    title: config.siteTitle,
-    titleAlt: config.siteTitleAlt,
-    description: config.siteDescription,
-    logo: config.siteLogo,
-    headline: config.siteHeadline,
-    siteLanguage: config.siteLanguage,
-    ogLanguage: config.ogLanguage,
-    author: config.author,
-    twitter: config.userTwitter,
-    facebook: config.ogSiteName,
+    siteTitleAlt: `Jodie - Gatsby Starter Portfolio`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-typescript',
-    'gatsby-transformer-yaml',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `@lekoarts/gatsby-theme-jodie`,
+      // See the theme's README for all available options
       options: {
-        name: 'projects',
-        path: `${__dirname}/content/projects`,
+        navigation: [
+          { name: `Projects`, slug: `/projects` },
+          { name: `Instagram`, slug: `/instagram` },
+          { name: `About`, slug: `/about` },
+        ],
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        name: 'config',
-        path: `${__dirname}/config`,
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-instagram`,
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
+        username: `2315642426`,
       },
     },
+    `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-source-instagram',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        access_token: process.env.ACCESS_TOKEN,
-        instagram_id: process.env.BUSINESS_ID,
+        name: `jodie - @lekoarts/gatsby-theme-jodie`,
+        short_name: `jodie`,
+        description: `Image-heavy photography portfolio with colorful accents & customizable pages. Includes adaptive image grids powered by CSS grid and automatic image integration into projects.`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#b75e09`,
+        display: `standalone`,
+        icons: [
+          {
+            src: `/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.googleAnalyticsID,
-      },
-    },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'standalone',
-        icon: 'src/favicon.png',
-      },
-    },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`,
   ],
 }
