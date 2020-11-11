@@ -6713,7 +6713,7 @@ gatsby-plugin-emotion@^4.3.15:
     "@babel/runtime" "^7.11.2"
     "@emotion/babel-preset-css-prop" "^10.0.27"
 
-gatsby-plugin-google-analytics@^2.3.19:
+gatsby-plugin-google-analytics@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.4.1.tgz#f828d6c7ed58b1ab946e508b09f7a13ccfe5268e"
   integrity sha512-cwxxkg+Fj1E+lpGt6XuASir/up55gSg1serk5/AHZ/cspAcgkaWNZUo5h83fUVapwQpCYNfN9qLFZzMWrs0P4g==
@@ -6721,7 +6721,7 @@ gatsby-plugin-google-analytics@^2.3.19:
     "@babel/runtime" "^7.11.2"
     minimatch "3.0.4"
 
-gatsby-plugin-manifest@^2.4.35:
+gatsby-plugin-manifest@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.5.2.tgz#38642e205e17086b3eca74b22f2eae07d10efbf8"
   integrity sha512-ULLpUbKMXu0wh6XV+GEqE3w7ggGrEKH3fubwiiE00oUNJGoyFfvS9xGSwPtpE6yO1Xg3m1AH5vajZxfL9dWQ+A==
@@ -6774,7 +6774,7 @@ gatsby-plugin-mdx@^1.2.53:
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
 
-gatsby-plugin-netlify@^2.3.24:
+gatsby-plugin-netlify@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.4.0.tgz#17aff8ce7a74c186acdc4d16741dfc2fc80783a9"
   integrity sha512-AocJvFSZZHWA6aBOaimD8oPYxMgLI0peqQglfO2wU4S9qcB8C1hpjfAsuRQqFCGp4tfA4Z8sTCfJcEZ9kprG1A==
@@ -6785,7 +6785,7 @@ gatsby-plugin-netlify@^2.3.24:
     lodash "^4.17.20"
     webpack-assets-manifest "^3.1.1"
 
-gatsby-plugin-offline@^3.2.37:
+gatsby-plugin-offline@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.3.3.tgz#566fdff6fb68db695ce9369b4c4df29b908c0afd"
   integrity sha512-z2rXsiBW/zGsRA78Vc6vzCtufk+fAjzAlnBtMUg+Xi0EUQnqyjih52CSousun0Eh8wAZgGGkFsvIIBfs1VU4YA==
@@ -6843,7 +6843,7 @@ gatsby-plugin-sharp@^2.6.44:
     svgo "1.3.2"
     uuid "3.4.0"
 
-gatsby-plugin-sitemap@^2.4.17:
+gatsby-plugin-sitemap@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.5.1.tgz#88534ed5d2c8c3274db76d9719ffa51443873596"
   integrity sha512-GNqsA47bmrRLaoOkRgyVtM6ebqL1ZuaxE8J9NIRcMOuIbSu0cVi4B4jMe5HohVdnEzGB3GLqnUQimwXD4XmDGQ==
@@ -7012,7 +7012,7 @@ gatsby-transformer-sharp@^2.5.21:
     semver "^7.3.2"
     sharp "^0.25.4"
 
-gatsby@^2.24.85:
+gatsby@^2.25.3:
   version "2.25.3"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.25.3.tgz#60df0787f152fe57c386bdbfa8af786e873c8f41"
   integrity sha512-2ykK0FGOyEbj8btH3OndWEQxd2BY63OtzlaBKZpbIZIw8i2LNbGQs8lv94lUpE8KcKMfmka1F0OiYvABU44ALA==
